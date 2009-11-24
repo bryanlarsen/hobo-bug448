@@ -1,0 +1,31 @@
+<include src="rapid" plugin="hobo"/>
+
+<include src="taglibs/auto/rapid/cards"/>
+<include src="taglibs/auto/rapid/pages"/>
+<include src="taglibs/auto/rapid/forms"/>
+
+<set-theme name="clean"/>
+
+<def tag="app-name">Yo</def>
+
+<def tag="form" for="Category">
+  <form merge param="default">
+    <error-messages param/>
+    <field-list fields="name, things">
+      <things-view:>
+      <div param="things-forms">
+        <p><b>Things:</b></p>
+        <input-many>
+          <div param="card">
+            <field-list fields="price, thing_pattern"/>
+            <check-many:somethings/>
+          </div>
+        </input-many>
+      </div>
+      </things-view:>
+    </field-list>
+    <div param="actions">
+      <submit label="#{ht 'categories.actions.save', :default=>['Save']}" param/><or-cancel param="cancel"/>
+    </div>
+  </form>
+</def>
